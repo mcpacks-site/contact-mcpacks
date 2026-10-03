@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us | MC Packs</title>
+
+<!--
+  To change the email, edit the EMAIL line in the script at the bottom.
+  This page links back to index.html. If your main site lives on a different
+  address (like https://mcpacks.site), change the two "index.html" links.
+-->
+
+<style>
+:root{--bg:#f3f1ea;--card:#fff;--ink:#1d2417;--mut:#667060;--line:#dcd8cb;--acc:#4a9a2e;--acc2:#2f6f1b;--chip:#e9efe2}
+@media (prefers-color-scheme:dark){:root{--bg:#15190f;--card:#1f2517;--ink:#eef2e6;--mut:#a0aa94;--line:#2f3824;--acc:#6cc24a;--acc2:#8edb6c;--chip:#2a331f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{position:relative;padding:48px 20px 28px;text-align:center;border-bottom:4px solid var(--acc);background:repeating-conic-gradient(var(--chip) 0 25%,transparent 0 50%) 0 0/32px 32px}
+h1{margin:0;font:800 clamp(28px,6vw,46px)/1.1 "Courier New",monospace;letter-spacing:-1px}
+header p{margin:10px auto 0;max-width:560px;color:var(--mut)}
+.back{position:absolute;top:14px;left:16px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-weight:600;font-size:14.5px;text-decoration:none}
+.back:hover{background:var(--chip)}
+main{max-width:640px;margin:0 auto;padding:28px 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:18px}
+.card h2{margin:0 0 6px;font-size:20px}
+.card p{margin:0 0 14px;color:var(--mut)}
+.email{display:block;font:700 clamp(17px,4.5vw,24px) "Courier New",monospace;background:var(--chip);border-radius:8px;padding:14px;text-align:center;word-break:break-all;margin-bottom:14px}
+.acts{display:flex;gap:10px;flex-wrap:wrap}
+.btn{background:var(--acc);color:#fff;border:1px solid var(--acc);border-radius:8px;padding:10px 18px;font:600 15px inherit;font-family:inherit;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--acc2)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.alt:hover{background:var(--chip)}
+ul{margin:0;padding-left:20px;color:var(--mut)}
+li{margin:4px 0}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:30px}
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="index.html">← Back to packs</a>
+  <h1>✉ CONTACT US</h1>
+  <p>Questions, bug reports, or want your pack or mod listed? Send an email.</p>
+</header>
+<main>
+  <section class="card">
+    <h2>Email</h2>
+    <p>The best way to reach us:</p>
+    <span class="email" id="email"></span>
+    <div class="acts">
+      <a class="btn" id="mail" href="#">Send an email</a>
+      <button class="btn alt" id="copy">Copy address</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Want your pack or mod listed?</h2>
+    <p>Include these in your email so it's quick to add:</p>
+    <ul>
+      <li>The name and a short description</li>
+      <li>Your name (or the author's name) and a link to your profile</li>
+      <li>Minecraft version, and the loader if it's a mod</li>
+      <li>A download link or the file</li>
+      <li>At least one screenshot</li>
+    </ul>
+  </section>
+</main>
+<footer>Not affiliated with Mojang or Microsoft. Minecraft is a trademark of Mojang Studios.</footer>
+
+<script>
+const EMAIL = "zachary@mcpacks.site";   // change the contact email here
+document.getElementById("email").textContent = EMAIL;
+document.getElementById("mail").href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("MC Packs");
+document.getElementById("copy").onclick = async e => {
+  const b = e.target;
+  try { await navigator.clipboard.writeText(EMAIL); b.textContent = "Copied!"; }
+  catch { b.textContent = "Select and copy it above"; }
+  setTimeout(() => b.textContent = "Copy address", 2000);
+};
+</script>
+</body>
+</html>

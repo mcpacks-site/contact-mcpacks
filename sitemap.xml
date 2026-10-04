@@ -3,7 +3,7 @@
 
   <!-- Your Contact Page Subdomain -->
   <url>
-    <loc>https://contact.mcpacks.site</loc>
+    <loc>https://mcpacks.site</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
